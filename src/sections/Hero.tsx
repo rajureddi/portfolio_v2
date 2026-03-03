@@ -192,7 +192,7 @@ export default function Hero({ onContactClick }: HeroProps) {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <div className="flex flex-wrap gap-2 justify-center">
-              {['AI/ML', 'Full Stack', 'Web3'].map((role, i) => (
+              {['AI/ML', 'Full Stack', 'Web3'].map((role) => (
                 <span
                   key={role}
                   className="px-6 py-2 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest shadow-xl shadow-black/10"
