@@ -80,7 +80,7 @@ export default function Experience() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex-none w-[320px] sm:w-[450px] snap-center"
+                className="flex-none w-[85vw] sm:w-[450px] snap-center"
               >
                 <div className="h-full bg-white border border-gray-200 rounded-[2.5rem] p-8 hover:shadow-2xl hover:border-blue-100 transition-all duration-500 relative overflow-hidden group/card">
                   {/* Card Background Accent */}
