@@ -10,7 +10,7 @@ const projects = [
     description: 'An offline UPI payment solution enabling secure transactions without internet access using USSD (*99#).',
     icon: '💳',
     color: 'from-blue-500/20 to-blue-600/20',
-    tags: ['FinTech', 'UPI', 'USSD', 'Android', 'Kotlin'],
+    tags: ['FinTech', 'Android'],
     github: 'https://github.com/rajureddi/TurantPay',
   },
   {
@@ -20,7 +20,7 @@ const projects = [
     description: 'AI-powered accessibility tool converting spoken language to sign language animations using deep learning.',
     icon: '🤟',
     color: 'from-purple-500/20 to-purple-600/20',
-    tags: ['AI', 'Deep Learning', 'Computer Vision', 'Accessibility'],
+    tags: ['AI / Deep Learning', 'Computer Vision'],
     github: 'https://github.com/rajureddi/voice2sign',
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     description: 'AI-based system using YOLO for real-time density analysis and dynamic signal control.',
     icon: '🚦',
     color: 'from-green-500/20 to-green-600/20',
-    tags: ['AI', 'YOLO', 'Computer Vision', 'Smart Cities'],
+    tags: ['AI / Deep Learning', 'Computer Vision'],
     github: 'https://github.com/rajureddi/Smart-AI-Based-Traffic-Management-System',
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     description: 'Python-based Android learning application built with KivyMD to help students clear academic backlogs.',
     icon: '📚',
     color: 'from-orange-500/20 to-orange-600/20',
-    tags: ['Education', 'Android', 'KivyMD', 'Python'],
+    tags: ['Android'],
     github: 'https://github.com/rajureddi/BACKLOG-WALLAH-',
   },
   {
@@ -50,7 +50,7 @@ const projects = [
     description: 'BERT-based NER system trained on CoNLL-2003 dataset for entity extraction from unstructured text.',
     icon: '🏷️',
     color: 'from-pink-500/20 to-pink-600/20',
-    tags: ['NLP', 'BERT', 'Transformers', 'AWS'],
+    tags: ['AI / Deep Learning'],
     github: 'https://github.com/rajureddi/NER-BERT',
   },
   {
@@ -60,42 +60,96 @@ const projects = [
     description: 'Deep learning plant disease detection using CNNs and ResNet34 with 98% accuracy.',
     icon: '🌱',
     color: 'from-emerald-500/20 to-emerald-600/20',
-    tags: ['Deep Learning', 'ResNet'],
+    tags: ['AI / Deep Learning', 'Computer Vision'],
     github: 'https://github.com/rajureddi/PlantAI',
   },
+  // ── AI Android Apps ──────────────────────────────────────────────
   {
     id: 7,
-    name: 'Face Detection App',
-    url: 'github.com/rajureddi/FaceDetection',
-    description: 'Android app for real-time facial feature extraction and identification.',
-    icon: '👤',
-    color: 'from-indigo-500/20 to-indigo-600/20',
-    tags: ['Android', 'OpenCV'],
-    github: 'https://github.com/rajureddi/FaceDetection',
+    name: 'AuraOnDevice AI HUB',
+    url: 'github.com/rajureddi/AuraOnDevice-AI_HUB',
+    description: 'On-device multimodal LLM Android app powered by MNN & MediaPipe inference engine — supports offline chat, vision, RAG and more without any cloud dependency.',
+    icon: '🧠',
+    color: 'from-violet-500/20 to-purple-600/20',
+    tags: ['AI / Deep Learning', 'On-Device AI', 'Android'],
+    github: 'https://github.com/rajureddi/AuraOnDevice-AI_HUB',
   },
   {
     id: 8,
-    name: 'YOLO Live Feed',
-    url: 'github.com/rajureddi/YOLO-Live',
-    description: 'Optimized YOLO object detection bridge for high-speed live camera processing.',
-    icon: '🎥',
-    color: 'from-red-500/20 to-red-600/20',
-    tags: ['YOLO', 'CV'],
-    github: 'https://github.com/rajureddi/YOLO-Live',
+    name: 'LocalMind – On-Device LLM',
+    url: 'github.com/rajureddi/LocalMind',
+    description: 'Run large language models fully on mobile hardware — privacy-first, offline inference engine for Android.',
+    icon: '📱',
+    color: 'from-blue-500/20 to-cyan-500/20',
+    tags: ['AI / Deep Learning', 'On-Device AI', 'Android'],
+    github: 'https://github.com/rajureddi/LocalMind',
   },
   {
     id: 9,
-    name: 'Fraud Detection Engine',
-    url: 'github.com/rajureddi/FraudAI',
-    description: 'Real-time transaction monitoring system using heuristic and AI models.',
+    name: 'DepthSightAI',
+    url: 'github.com/rajureddi/depthsightai',
+    description: 'Android application combining real-time object detection with depth estimation using ARCore — lightweight, on-device spatial awareness for edge scenarios.',
+    icon: '👁️',
+    color: 'from-teal-500/20 to-green-600/20',
+    tags: ['AI / Deep Learning', 'On-Device AI', 'Android', 'Computer Vision'],
+    github: 'https://github.com/rajureddi/depthsightai',
+  },
+  {
+    id: 10,
+    name: 'VisionAid++ – On-Device Multimodal AI',
+    url: 'github.com/rajureddi/On-Device-MultiModel-Ai-for-blind-navigation-and-low-vision-enhancement',
+    description: 'On-device multimodal AI system for blind navigation and low-vision enhancement — offline, privacy-preserving assistive technology powered by C++ inference.',
+    icon: '♿',
+    color: 'from-amber-500/20 to-orange-500/20',
+    tags: ['AI / Deep Learning', 'On-Device AI', 'Android', 'Computer Vision', 'Freelancing'],
+    github: 'https://github.com/rajureddi/On-Device-MultiModel-Ai-for-blind-navigation-and-low-vision-enhancement',
+  },
+  // ── Security / Detection ─────────────────────────────────────────
+  {
+    id: 11,
+    name: 'E-Payment Fraud Detection',
+    url: 'github.com/rajureddi/epapyment',
+    description: 'AI-powered e-payment fraud detection system that analyzes transaction patterns in real time to flag suspicious activity and protect digital payments.',
     icon: '🛡️',
     color: 'from-blue-700/20 to-blue-800/20',
-    tags: ['Security', 'AI', 'ML'],
-    github: 'https://github.com/rajureddi/FraudAI',
+    tags: ['AI / Deep Learning', 'FinTech'],
+    github: 'https://github.com/rajureddi/epapyment',
+  },
+  {
+    id: 12,
+    name: 'Emergency Ambulance Detection',
+    url: 'github.com/rajureddi/ambulance-detection-Emergency-vechiles-deetection',
+    description: 'Fine-tuned YOLO model for real-time emergency vehicle detection (ambulances, fire engines, police cars) — enabling smart traffic priority systems.',
+    icon: '🚑',
+    color: 'from-red-500/20 to-rose-600/20',
+    tags: ['AI / Deep Learning', 'Computer Vision'],
+    github: 'https://github.com/rajureddi/ambulance-detection-Emergency-vechiles-deetection',
+  },
+  // ── Freelancing ──────────────────────────────────────────────────
+  {
+    id: 13,
+    name: 'VoterSetu',
+    url: 'github.com/rajureddi/votersetu',
+    description: 'Civic-tech platform bridging voters and electoral services — simplifying voter registration, information lookup and electoral awareness.',
+    icon: '🗳️',
+    color: 'from-indigo-500/20 to-blue-500/20',
+    tags: ['Freelancing', 'Android'],
+    github: 'https://github.com/rajureddi/votersetu',
+  },
+  // ── Face Recognition ─────────────────────────────────────────────
+  {
+    id: 14,
+    name: 'Face Recognition Attendance System',
+    url: 'github.com/rajureddi/FACE_RECOGNITION_BASED_ATTENDANCE',
+    description: 'Python-based automated attendance system using face recognition — detects and identifies faces in real time to log attendance with zero manual effort.',
+    icon: '👤',
+    color: 'from-indigo-500/20 to-indigo-600/20',
+    tags: ['AI / Deep Learning', 'Computer Vision'],
+    github: 'https://github.com/rajureddi/FACE_RECOGNITION_BASED_ATTENDANCE',
   },
 ];
 
-const allCategories = ['All', ...new Set(projects.flatMap(p => p.tags))];
+const allCategories = ['All', 'FinTech', 'Android', 'AI / Deep Learning', 'Computer Vision', 'On-Device AI', 'Freelancing'];
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -134,7 +188,7 @@ export default function Projects() {
             transition={{ duration: 0.6 }}
             className="flex flex-wrap gap-2 md:justify-end max-w-xl"
           >
-            {allCategories.slice(0, 8).map((category) => (
+            {allCategories.slice(0, 12).map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}

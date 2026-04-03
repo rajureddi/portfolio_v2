@@ -46,6 +46,29 @@ export default function Hero({ onContactClick }: HeroProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
+  const quotes = [
+    "Turning complex problems into elegant solutions",
+    "Code is like humor. When you have to explain it, it’s bad.",
+    "First, solve the problem. Then, write the code.",
+    "Simplicity is the soul of efficiency.",
+    "Talk is cheap. Show me the code.",
+    "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "Make it work, make it right, make it fast.",
+    "Clean code always looks like it was written by someone who cares.",
+    "Truth can only be found in one place: the code.",
+    "Programming isn't about what you know; it's about what you can figure out.",
+    "Experience is the name everyone gives to their mistakes.",
+    "In order to be irreplaceable, one must always be different."
+  ];
+
+  const [dailyQuote, setDailyQuote] = useState(quotes[0]);
+
+  useEffect(() => {
+    // Pick a random quote on each page load
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setDailyQuote(quotes[randomIndex]);
+  }, []);
+
   return (
     <section className="min-h-screen relative flex flex-col px-4 sm:px-6 lg:px-8 xl:px-12">
       {/* Header */}
@@ -187,7 +210,7 @@ export default function Hero({ onContactClick }: HeroProps) {
           className="mt-16 text-center max-w-2xl px-4"
         >
           <p className="text-xl sm:text-2xl text-gray-400 font-medium italic mb-10">
-            "Turning complex problems into elegant solutions"
+            "{dailyQuote}"
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
