@@ -101,7 +101,8 @@ export default function Hero({ onContactClick }: HeroProps) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-full transition-all duration-200"
+                className="p-2 text-gray-500 hover:text-violet-600 rounded-full transition-all duration-200"
+                style={{ background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.6)' }}
                 aria-label={social.label}
               >
                 <social.icon className="w-5 h-5" />
@@ -109,9 +110,18 @@ export default function Hero({ onContactClick }: HeroProps) {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 text-sm">
+          <div
+            className="flex items-center gap-2 text-sm px-4 py-2 rounded-full text-gray-700"
+            style={{
+              background: 'rgba(255,255,255,0.55)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.80)',
+              boxShadow: '0 4px 20px rgba(109,40,217,0.08), inset 0 1px 0 rgba(255,255,255,0.9)',
+            }}
+          >
             <span className="font-semibold text-xl">{formatTime(currentTime)}</span>
-            <span className="text-gray-500 text-xs">{formatDate(currentTime)}</span>
+            <span className="text-gray-400 text-xs">{formatDate(currentTime)}</span>
           </div>
         </motion.div>
       </header>
@@ -133,7 +143,7 @@ export default function Hero({ onContactClick }: HeroProps) {
 
               {/* Text from Left - Ends near center (48%) */}
               <motion.text
-                className="fill-gray-300 font-black uppercase tracking-[0.3em] text-[9px]"
+                className="fill-gray-400/80 font-black uppercase tracking-[0.3em] text-[9px]"
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
@@ -146,7 +156,7 @@ export default function Hero({ onContactClick }: HeroProps) {
 
               {/* Text from Right - Starts near center (52%) */}
               <motion.text
-                className="fill-gray-300 font-black uppercase tracking-[0.3em] text-[9px]"
+                className="fill-gray-400/80 font-black uppercase tracking-[0.3em] text-[9px]"
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
@@ -195,7 +205,7 @@ export default function Hero({ onContactClick }: HeroProps) {
                 opacity: { duration: 0.8 },
                 y: { duration: 1.2, times: [0, 0.4, 0.6, 0.8, 1], delay: 0.5 }
               }}
-              className="text-7xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-gray-400 to-gray-200 cursor-default"
+              className="text-7xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-gray-700 to-gray-400 cursor-default"
             >
               BANDAM
             </motion.h1>
@@ -209,7 +219,7 @@ export default function Hero({ onContactClick }: HeroProps) {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center max-w-2xl px-4"
         >
-          <p className="text-xl sm:text-2xl text-gray-400 font-medium italic mb-10">
+          <p className="text-xl sm:text-2xl text-gray-600 font-medium italic mb-10">
             "{dailyQuote}"
           </p>
 
@@ -218,7 +228,15 @@ export default function Hero({ onContactClick }: HeroProps) {
               {['AI/ML', 'Full Stack', 'Web3'].map((role) => (
                 <span
                   key={role}
-                  className="px-6 py-2 bg-black text-white rounded-full text-xs font-black uppercase tracking-widest shadow-xl shadow-black/10"
+                  className="px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest"
+                  style={{
+                    background: 'rgba(255,255,255,0.55)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255,255,255,0.80)',
+                    color: '#3b0764',
+                    boxShadow: '0 4px 15px rgba(109,40,217,0.10), inset 0 1px 0 rgba(255,255,255,0.9)',
+                  }}
                 >
                   {role}
                 </span>
@@ -227,7 +245,12 @@ export default function Hero({ onContactClick }: HeroProps) {
 
             <button
               onClick={onContactClick}
-              className="px-8 py-3 bg-white text-black border border-gray-100 rounded-full text-xs font-black uppercase tracking-widest shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+              className="px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all hover:-translate-y-1"
+              style={{
+                background: 'linear-gradient(135deg, #6d28d9, #4f46e5)',
+                color: 'white',
+                boxShadow: '0 6px 25px rgba(109,40,217,0.35)',
+              }}
             >
               Let's Talk
             </button>
@@ -250,8 +273,8 @@ export default function Hero({ onContactClick }: HeroProps) {
           document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
         }}
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-400">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-gray-300 to-transparent" />
+        <span className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500">Scroll</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-gray-400 to-transparent" />
       </motion.div>
 
     </section>

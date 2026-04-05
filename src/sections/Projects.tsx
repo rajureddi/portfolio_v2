@@ -160,8 +160,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 xl:px-12 relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-blue-50/20 rounded-full blur-3xl opacity-30" />
+      <div className="absolute top-0 right-0 -z-10 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl opacity-30" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -176,8 +175,8 @@ export default function Projects() {
               <Code2 className="w-4 h-4" />
               <span>Selected Works</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter">
-              PORT<span className="text-gray-300">FOLIO.</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tighter text-gray-900">
+              PORT<span className="text-gray-400">FOLIO.</span>
             </h2>
           </motion.div>
 
@@ -193,9 +192,22 @@ export default function Projects() {
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${selectedCategory === category
-                  ? 'bg-black text-white border-black shadow-lg shadow-black/10'
-                  : 'bg-white text-gray-400 border-gray-100 hover:border-gray-300 hover:text-black'
+                  ? ''
+                  : ''
                   }`}
+                style={selectedCategory === category ? {
+                  background: 'linear-gradient(135deg, #6d28d9, #4f46e5)',
+                  color: 'white',
+                  border: 'none',
+                  boxShadow: '0 4px 15px rgba(109,40,217,0.35)',
+                } : {
+                  background: 'rgba(255,255,255,0.50)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255,255,255,0.75)',
+                  color: '#6b7280',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                }}
               >
                 {category}
               </button>
@@ -215,7 +227,14 @@ export default function Projects() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
                 whileHover={{ y: -10 }}
-                className="group relative bg-white border border-gray-100 rounded-[2.5rem] p-8 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col"
+                className="group relative rounded-[2.5rem] p-8 transition-all duration-500 flex flex-col"
+                style={{
+                  background: 'rgba(255,255,255,0.55)',
+                  backdropFilter: 'blur(28px)',
+                  WebkitBackdropFilter: 'blur(28px)',
+                  border: '1px solid rgba(255,255,255,0.80)',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.90)',
+                }}
               >
                 <div className="flex items-start justify-between mb-8">
                   <div className={`w-16 h-16 bg-gradient-to-br ${project.color} rounded-2xl flex items-center justify-center text-3xl shadow-sm border border-white/50 group-hover:scale-110 transition-transform duration-500`}>
@@ -226,7 +245,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-50 text-gray-400 hover:text-black hover:bg-gray-100 rounded-full transition-all border border-gray-100"
+                      className="p-3 bg-white/40 text-gray-500 hover:text-gray-900 hover:bg-white/60 rounded-full transition-all border border-white/50 shadow-sm"
                     >
                       <Github className="w-5 h-5" />
                     </a>
@@ -237,16 +256,21 @@ export default function Projects() {
                   <h3 className="text-2xl font-black text-gray-900 leading-tight mb-4 group-hover:text-blue-600 transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-3 font-medium mb-8">
+                  <p className="text-sm text-gray-600 leading-relaxed line-clamp-3 font-medium mb-8">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="mt-auto pt-8 border-t border-gray-50 flex flex-wrap gap-2">
+                <div className="mt-auto pt-8 border-t border-white/40 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-4 py-1.5 bg-gray-50 text-[10px] font-black text-gray-400 rounded-full border border-gray-100 uppercase tracking-tighter group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors"
+                    className="px-4 py-1.5 text-[10px] font-black uppercase tracking-tighter rounded-full shadow-sm"
+                      style={{
+                        background: 'rgba(255,255,255,0.65)',
+                        border: '1px solid rgba(255,255,255,0.85)',
+                        color: '#6b7280',
+                      }}
                     >
                       {tag}
                     </span>

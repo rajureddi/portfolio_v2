@@ -43,7 +43,7 @@ const coursework = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-4 sm:px-6 lg:px-8 xl:px-12 bg-gray-50/50">
+    <section id="experience" className="py-32 px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex items-center justify-between mb-16 px-4">
@@ -52,15 +52,15 @@ export default function Experience() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl sm:text-6xl font-bold tracking-tight">Education</h2>
-            <p className="mt-4 text-gray-500 font-medium">My academic journey and milestones.</p>
+            <h2 className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900">Education</h2>
+            <p className="mt-4 text-gray-600 font-medium">My academic journey and milestones.</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="hidden md:flex items-center gap-3 text-gray-400 bg-white px-6 py-3 rounded-full border border-gray-100 shadow-sm"
+            className="hidden md:flex items-center gap-3 text-gray-600 glass px-6 py-3 rounded-full"
           >
             <span className="text-sm font-bold uppercase tracking-widest">Scroll this way</span>
             <div className="flex">
@@ -82,7 +82,16 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex-none w-[85vw] sm:w-[450px] snap-center"
               >
-                <div className="h-full bg-white border border-gray-200 rounded-[2.5rem] p-8 hover:shadow-2xl hover:border-blue-100 transition-all duration-500 relative overflow-hidden group/card">
+                <div
+                  className="h-full rounded-[2.5rem] p-8 transition-all duration-500 relative overflow-hidden group/card"
+                  style={{
+                    background: 'rgba(255,255,255,0.58)',
+                    backdropFilter: 'blur(30px)',
+                    WebkitBackdropFilter: 'blur(30px)',
+                    border: '1px solid rgba(255,255,255,0.82)',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.90)',
+                  }}
+                >
                   {/* Card Background Accent */}
                   <div className={`absolute top-0 right-0 w-32 h-32 ${edu.color} opacity-[0.03] rounded-bl-full group-hover/card:opacity-[0.08] transition-opacity duration-500`} />
 
@@ -92,7 +101,7 @@ export default function Experience() {
                         <edu.icon className={`w-8 h-8 ${edu.color.replace('bg-', 'text-')}`} />
                       </div>
                       <div className="flex flex-col items-end">
-                        <span className="px-5 py-2 bg-gray-50 rounded-full text-sm font-bold text-gray-900 border border-gray-100">
+                        <span className="px-5 py-2 glass rounded-full text-sm font-bold text-gray-900">
                           {edu.tenure}
                         </span>
                         <span className="mt-2 text-blue-600 font-black text-xl">
@@ -106,11 +115,11 @@ export default function Experience() {
                         {edu.degree}
                       </h3>
                       <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-gray-500 font-medium">
+                        <div className="flex items-center gap-2 text-gray-600 font-medium">
                           <MapPin className="w-4 h-4" />
                           <span>{edu.institution}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-gray-400 text-sm">
+                        <div className="flex items-center gap-2 text-gray-500 text-sm">
                           <Calendar className="w-4 h-4" />
                           <span>Full-time Program</span>
                         </div>
@@ -129,15 +138,22 @@ export default function Experience() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[2.5rem] p-10 border border-gray-200 shadow-sm"
+            className="rounded-[2.5rem] p-10"
+            style={{
+              background: 'rgba(237,233,254,0.45)',
+              backdropFilter: 'blur(28px)',
+              WebkitBackdropFilter: 'blur(28px)',
+              border: '1px solid rgba(167,139,250,0.40)',
+              boxShadow: '0 8px 30px rgba(109,40,217,0.07), inset 0 1px 0 rgba(255,255,255,0.85)',
+            }}
           >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-900">
               <BookOpen className="w-6 h-6 text-blue-500" />
               Relevant Coursework
             </h3>
             <div className="flex flex-wrap gap-2">
               {coursework.map((course) => (
-                <span key={course} className="px-5 py-2.5 bg-gray-50 hover:bg-blue-50 hover:text-blue-600 rounded-full text-sm font-bold text-gray-600 border border-gray-100 transition-all cursor-default">
+                <span key={course} className="px-5 py-2.5 bg-white/40 hover:bg-white/80 hover:text-blue-600 rounded-full text-sm font-bold text-gray-700 border border-white/50 transition-all cursor-default shadow-sm">
                   {course}
                 </span>
               ))}
@@ -149,9 +165,16 @@ export default function Experience() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-[2.5rem] p-10 border border-gray-200 shadow-sm"
+            className="rounded-[2.5rem] p-10"
+            style={{
+              background: 'rgba(254,243,199,0.45)',
+              backdropFilter: 'blur(28px)',
+              WebkitBackdropFilter: 'blur(28px)',
+              border: '1px solid rgba(252,211,77,0.40)',
+              boxShadow: '0 8px 30px rgba(245,158,11,0.07), inset 0 1px 0 rgba(255,255,255,0.85)',
+            }}
           >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-900">
               <Award className="w-6 h-6 text-yellow-500" />
               Certifications
             </h3>
@@ -163,10 +186,10 @@ export default function Experience() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-2xl transition-all border border-transparent hover:border-gray-100 group"
+                  className="flex items-center gap-4 p-4 hover:bg-white/50 rounded-2xl transition-all border border-transparent hover:border-white/50 group shadow-sm"
                 >
                   <div className="w-2 h-2 rounded-full bg-yellow-500 group-hover:scale-150 transition-transform" />
-                  <span className="text-gray-700 font-semibold">{cert}</span>
+                  <span className="text-gray-800 font-semibold">{cert}</span>
                 </motion.div>
               ))}
             </div>

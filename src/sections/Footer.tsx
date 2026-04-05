@@ -16,11 +16,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 xl:px-12 bg-white overflow-hidden">
-      {/* Decorative Gradient */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+    <footer
+      className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden z-10"
+      style={{
+        background: 'rgba(255,255,255,0.25)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderTop: '1px solid rgba(255,255,255,0.60)',
+      }}
+    >
+      {/* Gradient top divider */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[1px]"
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(167,139,250,0.5), rgba(99,102,241,0.5), transparent)' }}
+      />
 
-      <div className="max-w-7xl mx-auto">
+      {/* Decorative orbs */}
+      <div
+        className="absolute top-10 left-1/4 w-80 h-80 rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+      <div
+        className="absolute bottom-10 right-1/4 w-64 h-64 rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(56,189,248,0.10) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Let's Talk Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 mb-32">
           <motion.div
@@ -29,10 +56,15 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center lg:text-left"
           >
-            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight">
-              LET'S <span className="text-blue-600">TALK.</span>
+            <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight text-gray-900">
+              LET'S <span style={{
+                background: 'linear-gradient(135deg, #6d28d9, #4f46e5)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>TALK.</span>
             </h2>
-            <p className="text-xl text-gray-400 font-medium max-w-md">
+            <p className="text-xl text-gray-500 font-medium max-w-md">
               Have a project in mind? Let's turn your ideas into reality.
             </p>
           </motion.div>
@@ -45,17 +77,43 @@ export default function Footer() {
           >
             <a
               href="mailto:rajubandam694@gmail.com"
-              className="group relative flex items-center justify-between p-8 bg-black text-white rounded-3xl overflow-hidden shadow-2xl transition-all hover:scale-[1.02]"
+              className="group relative flex items-center justify-between p-8 rounded-3xl overflow-hidden transition-all hover:-translate-y-1"
+              style={{
+                background: 'rgba(255,255,255,0.65)',
+                backdropFilter: 'blur(30px)',
+                WebkitBackdropFilter: 'blur(30px)',
+                border: '1px solid rgba(255,255,255,0.85)',
+                boxShadow: '0 8px 32px rgba(109,40,217,0.08), inset 0 1px 0 rgba(255,255,255,0.90)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 20px 50px rgba(109,40,217,0.16), inset 0 1px 0 rgba(255,255,255,0.90)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 8px 32px rgba(109,40,217,0.08), inset 0 1px 0 rgba(255,255,255,0.90)';
+              }}
             >
               <div className="relative z-10 flex flex-col">
-                <span className="text-xs uppercase tracking-widest font-black opacity-50 mb-2">Send an Email</span>
-                <span className="text-lg font-bold">rajubandam694@gmail.com</span>
+                <span className="text-xs uppercase tracking-widest font-black opacity-50 mb-2 text-gray-500">Send an Email</span>
+                <span className="text-lg font-bold text-gray-800">rajubandam694@gmail.com</span>
               </div>
-              <div className="relative z-10 p-4 bg-white/10 rounded-2xl group-hover:bg-white/20 transition-colors">
+              <div
+                className="relative z-10 p-4 rounded-2xl transition-all group-hover:scale-110"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(167,139,250,0.3), rgba(99,102,241,0.2))',
+                  border: '1px solid rgba(167,139,250,0.4)',
+                  color: '#6d28d9',
+                }}
+              >
                 <Send className="w-6 h-6" />
               </div>
-              {/* Animation Background */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity" />
+              {/* Animation orb */}
+              <div
+                className="absolute top-0 right-0 w-32 h-32 opacity-40 group-hover:opacity-70 transition-opacity pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle, rgba(167,139,250,0.5) 0%, transparent 70%)',
+                  filter: 'blur(20px)',
+                }}
+              />
             </a>
 
             <div className="flex gap-4">
@@ -65,10 +123,23 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center p-6 bg-gray-50 border border-gray-100 rounded-3xl hover:bg-white hover:shadow-xl transition-all group"
+                  className="flex-1 flex items-center justify-center p-6 rounded-3xl transition-all group hover:-translate-y-1"
+                  style={{
+                    background: 'rgba(255,255,255,0.55)',
+                    backdropFilter: 'blur(24px)',
+                    WebkitBackdropFilter: 'blur(24px)',
+                    border: '1px solid rgba(255,255,255,0.80)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.90)',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 12px 30px rgba(109,40,217,0.12), inset 0 1px 0 rgba(255,255,255,0.90)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 4px 15px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.90)';
+                  }}
                 >
-                  <social.icon className="w-6 h-6 text-gray-400 group-hover:text-black transition-colors" />
-                  <ArrowUpRight className="w-4 h-4 text-transparent group-hover:text-blue-600 ml-1 transition-all" />
+                  <social.icon className="w-6 h-6 text-gray-500 group-hover:text-violet-600 transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-transparent group-hover:text-violet-400 ml-1 transition-all" />
                 </a>
               ))}
             </div>
@@ -76,10 +147,23 @@ export default function Footer() {
         </div>
 
         {/* Marquee */}
-        <div className="relative mb-24 py-10 border-y border-gray-100 bg-gray-50/30">
+        <div
+          className="relative mb-24 py-10 rounded-2xl overflow-hidden"
+          style={{
+            background: 'rgba(255,255,255,0.30)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            borderTop: '1px solid rgba(255,255,255,0.60)',
+            borderBottom: '1px solid rgba(255,255,255,0.60)',
+          }}
+        >
           <div className="flex animate-marquee whitespace-nowrap">
             {[...Array(6)].map((_, i) => (
-              <span key={i} className="text-5xl font-black text-transparent stroke-gray-200 uppercase tracking-tighter mx-4" style={{ WebkitTextStroke: '1px #e5e7eb' }}>
+              <span
+                key={i}
+                className="text-5xl font-black uppercase tracking-tighter mx-4"
+                style={{ WebkitTextStroke: '1px rgba(109,40,217,0.15)', color: 'transparent' }}
+              >
                 {marqueeText}
               </span>
             ))}
@@ -89,15 +173,15 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12">
           <div className="flex items-center gap-6">
-            <span className="text-sm font-bold text-gray-900 uppercase">Raju Reddy</span>
-            <div className="w-1 h-1 rounded-full bg-gray-300" />
-            <span className="text-sm text-gray-400">© {new Date().getFullYear()}</span>
+            <span className="text-sm font-bold text-gray-800 uppercase">Raju Reddy</span>
+            <div className="w-1 h-1 rounded-full bg-violet-400" />
+            <span className="text-sm text-gray-500">© {new Date().getFullYear()}</span>
           </div>
 
           <div className="flex items-center gap-8">
             <button
               onClick={scrollToTop}
-              className="text-sm font-black uppercase tracking-widest text-gray-400 hover:text-black transition-colors"
+              className="text-sm font-black uppercase tracking-widest text-gray-500 hover:text-violet-600 transition-colors"
             >
               Back to top
             </button>
@@ -108,7 +192,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-black transition-colors"
+                  className="text-gray-400 hover:text-violet-600 transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
