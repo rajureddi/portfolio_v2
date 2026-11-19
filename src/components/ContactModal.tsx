@@ -95,8 +95,18 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <span>Compose Email in Default Client</span>
             </a>
 
-            {/* Social Links */}
+            {/* Social & Website Links */}
             <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800/80 flex items-center justify-around text-xs font-mono text-zinc-600 dark:text-zinc-400">
+              <a
+                href="https://rajureddie.in"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-zinc-900 dark:hover:text-white flex items-center gap-1 transition-colors font-medium text-emerald-600 dark:text-emerald-400"
+              >
+                <span>rajureddie.in</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
+              <span className="text-zinc-300 dark:text-zinc-700">•</span>
               <a
                 href="https://www.linkedin.com/in/rajureddie/"
                 target="_blank"
@@ -114,16 +124,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 className="hover:text-zinc-900 dark:hover:text-white flex items-center gap-1 transition-colors"
               >
                 <span>GitHub</span>
-                <ArrowUpRight className="w-3 h-3" />
-              </a>
-              <span className="text-zinc-300 dark:text-zinc-700">•</span>
-              <a
-                href="https://twitter.com/naughtyeth"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-zinc-900 dark:hover:text-white flex items-center gap-1 transition-colors"
-              >
-                <span>X / Twitter</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
             </div>

@@ -29,25 +29,25 @@ export default function HeaderNav({ onContactClick, onResumeClick }: HeaderNavPr
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Name / Monogram */}
         <a
-          href="#hero"
+          href="#home"
           className="flex items-center gap-2.5 text-zinc-900 dark:text-zinc-100 group transition-colors"
         >
-          <div className="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center font-bold text-sm shadow-sm">
+          <div className="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 flex items-center justify-center font-display font-black text-sm tracking-tight shadow-sm border border-zinc-700/40 dark:border-zinc-300/40">
             RB
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-sm tracking-tight leading-none group-hover:text-emerald-500 transition-colors">
+            <span className="font-bold text-sm tracking-tight leading-none group-hover:text-emerald-500 transition-colors font-display">
               Raju Bandam
             </span>
-            <span className="text-[10px] font-mono text-zinc-500 dark:text-zinc-400 leading-tight">
-              Full-Stack &amp; AI/ML
+            <span className="text-[10px] font-mono text-zinc-500 dark:text-zinc-400 leading-tight flex items-center gap-1">
+              <span>rajureddie.in</span>
             </span>
           </div>
         </a>
 
         {/* Center Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-mono text-zinc-600 dark:text-zinc-400">
-          <a href="#hero" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
+          <a href="#home" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
             // Home
           </a>
           <a href="#projects" className="hover:text-zinc-900 dark:hover:text-white transition-colors">

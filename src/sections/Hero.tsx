@@ -102,7 +102,7 @@ export default function Hero({ onContactClick, onResumeClick }: HeroProps) {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-[100dvh] pt-32 pb-12 flex flex-col justify-between overflow-x-clip bg-zinc-50 dark:bg-[#09090b] transition-colors duration-300">
+    <section id="home" className="relative min-h-[100dvh] pt-32 pb-12 flex flex-col justify-between overflow-x-clip bg-zinc-50 dark:bg-[#09090b] transition-colors duration-300">
       {/* Subtle Ambient Mesh Grid */}
       <div className="absolute inset-0 bg-cyber-grid text-zinc-900/5 dark:text-white/5 pointer-events-none" />
 

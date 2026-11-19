@@ -61,9 +61,14 @@ export default function Footer({ onContactClick, onResumeClick }: FooterProps) {
           <div className="flex items-center gap-4">
             <span>© 2026 Raju Bandam. All rights reserved.</span>
             <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline text-zinc-600 dark:text-zinc-400">
-              Built with 21st.dev component designs
-            </span>
+            <a
+              href="https://rajureddie.in"
+              target="_blank"
+              rel="noreferrer"
+              className="hidden md:inline text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
+              rajureddie.in
+            </a>
           </div>
 
           {/* Socials & Back to Top */}

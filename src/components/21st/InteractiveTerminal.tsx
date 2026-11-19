@@ -64,7 +64,8 @@ export default function InteractiveTerminal() {
       newLines.push({
         id: (Date.now() + 1).toString(),
         type: 'output',
-        content: `Name       : Raju Bandam
+        content: `Name       : Raju Bandam (RB)
+Website    : https://rajureddie.in
 Title      : Full-Stack Developer & AI/ML Engineer
 Status     : Fresher / Available for 2026 Software Engineering Roles
 College    : Malla Reddy University, Hyderabad (CGPA 8.7)
@@ -108,7 +109,8 @@ Tools      : Git, GitHub, Docker, Postman, VS Code, Linux`,
       newLines.push({
         id: (Date.now() + 1).toString(),
         type: 'output',
-        content: `Email    : rajubandam694@gmail.com
+        content: `Website  : https://rajureddie.in
+Email    : rajubandam694@gmail.com
 GitHub   : https://github.com/rajureddi
 LinkedIn : https://www.linkedin.com/in/rajureddie/
 Twitter  : https://twitter.com/naughtyeth

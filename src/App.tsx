@@ -36,7 +36,7 @@ export default function App() {
           onResumeClick={() => setIsResumeOpen(true)}
         />
 
-        {/* 2. 21st.dev Glass Folder Cards: 14 Selected Works Organized in Interactive Tactile Folders */}
+        {/* 2. Glass Folder Cards: 14 Selected Works Organized in Interactive Tactile Folders */}
         <Projects />
 
         {/* 3. Competencies & Architectural Bento Grid with 3D Globe & Tech Sphere */}

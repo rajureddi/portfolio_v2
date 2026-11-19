@@ -315,22 +315,13 @@ export default function Projects() {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold tracking-widest uppercase">
               <FolderGit2 className="w-3.5 h-3.5" />
-              <span>21ST.DEV GLASS FOLDER CARDS ARCHITECTURE</span>
+              <span>TACTILE PROJECT ARCHITECTURE</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
               Selected Works &amp; Repositories.
             </h2>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed">
-              Hover over and click any folder to reveal its contents. Built with the official{' '}
-              <a
-                href="https://21st.dev/@kedhareswer/components/glass-folder-cards"
-                target="_blank"
-                rel="noreferrer"
-                className="text-zinc-900 dark:text-zinc-200 underline hover:text-black dark:hover:text-white underline-offset-4"
-              >
-                21st.dev Glass Folder Cards
-              </a>{' '}
-              spec with domain-warped liquid physics and frosted glass depth.
+              Hover over and click any folder to reveal its contents. Interactive tactile cards with domain-warped liquid physics and frosted glass depth.
             </p>
           </div>
 
@@ -345,7 +336,7 @@ export default function Projects() {
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Glass Folders (21st.dev)</span>
+              <span>Glass Folders</span>
             </button>
             <button
               onClick={() => setViewMode('grid')}
@@ -361,7 +352,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* 1. Glass Folders View (21st.dev) */}
+        {/* 1. Glass Folders View */}
         {viewMode === 'folders' && (
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start pt-6">

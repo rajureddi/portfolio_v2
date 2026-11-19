@@ -18,7 +18,7 @@ export default function FloatingDockNav({ onContactClick, onResumeClick }: Float
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500">
       <Dock magnification={60} distance={100} className="px-3 py-2 bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-zinc-800 shadow-2xl backdrop-blur-xl">
-        <DockIcon onClick={() => scrollTo('hero')} title="Home / Hero">
+        <DockIcon onClick={() => scrollTo('home')} title="Home">
           <Home className="w-4 h-4 text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors" />
         </DockIcon>
 

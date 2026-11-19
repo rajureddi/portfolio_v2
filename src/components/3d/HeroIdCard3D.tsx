@@ -177,8 +177,8 @@ export default function HeroIdCard3D({ className = '' }: HeroIdCard3DProps) {
                 )
               )}
             </div>
-            <div className="text-[9px] font-mono text-zinc-500 dark:text-zinc-400 tracking-widest">
-              ID: RAJU-AIML-2026
+            <div className="text-[9px] font-mono text-zinc-500 dark:text-zinc-400 tracking-wider">
+              ID: RAJU-AIML-2026 • rajureddie.in
             </div>
           </div>
 
