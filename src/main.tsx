@@ -12,7 +12,7 @@ const isProjectsRoute = path === '/projects' || path === '/projects/';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       {isResumeRoute ? <ResumePage /> : isProjectsRoute ? <ProjectsPage /> : <App />}
     </ThemeProvider>
   </StrictMode>,
