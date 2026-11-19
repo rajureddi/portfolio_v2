@@ -1,282 +1,208 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Twitter, Instagram, ArrowUpRight, ArrowRight, Download, Mail } from 'lucide-react';
+import HeroIdCard3D from '../components/3d/HeroIdCard3D';
+import { TECH_LOGOS } from '../components/ui/tech-logos';
+
+const greetings = ['Hello', 'नमस्ते', 'Bonjour', 'Hey there', 'Ciao'];
 
 const socialLinks = [
-  { icon: Twitter, href: 'https://twitter.com/naughtyeth', label: 'Twitter' },
   { icon: Github, href: 'https://github.com/rajureddi', label: 'GitHub' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/rajureddie/', label: 'LinkedIn' },
+  { icon: Twitter, href: 'https://twitter.com/naughtyeth', label: 'X (Twitter)' },
   { icon: Instagram, href: 'https://www.instagram.com/rajureddie__', label: 'Instagram' },
-];
-
-const skills = [
-  'Python', 'Java', 'JavaScript', 'React.js', 'Next.js', 'Flask', 'Node.js',
-  'TensorFlow', 'PyTorch', 'OpenCV', 'YOLO', 'BERT', 'AWS', 'Git', "Android Dev."
+  { icon: Mail, href: 'mailto:rajubandam694@gmail.com', label: 'Email' },
 ];
 
 interface HeroProps {
   onContactClick: () => void;
+  onResumeClick: () => void;
 }
 
-export default function Hero({ onContactClick }: HeroProps) {
-  const [currentTime, setCurrentTime] = useState(new Date());
+function GreetingWord() {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+      setIndex((prev) => (prev + 1) % greetings.length);
+    }, 2400);
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
-    });
-  };
+  return (
+    <span className="inline-grid overflow-hidden align-bottom">
+      <span className="invisible col-start-1 row-start-1 whitespace-nowrap">
+        {greetings[0]}
+      </span>
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span
+          key={greetings[index]}
+          initial={{ y: '100%', opacity: 0 }}
+          animate={{ y: '0%', opacity: 1 }}
+          exit={{ y: '-100%', opacity: 0 }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
+          className="col-start-1 row-start-1 inline-block whitespace-nowrap text-zinc-900 dark:text-zinc-100"
+        >
+          {greetings[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
-  const formatDate = (date: Date) => {
-    return date.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-    });
-  };
+function LogoMarquee() {
+  return (
+    <div className="relative w-full overflow-hidden py-8 border-y border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-950/40">
+      {/* Side Fade Gradients */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-zinc-50 dark:from-[#09090b] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-zinc-50 dark:from-[#09090b] to-transparent" />
 
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
+      {/* Marquee Track */}
+      <div className="flex w-max items-center gap-10 animate-marquee hover:[animation-play-state:paused]">
+        {[...TECH_LOGOS, ...TECH_LOGOS].map((tech, i) => {
+          const Icon = tech.icon;
+          return (
+            <div
+              key={`${tech.name}-${i}`}
+              className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 hover:border-zinc-300 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors group shrink-0 shadow-xs"
+            >
+              <div className="w-5 h-5 flex items-center justify-center shrink-0">
+                <Icon className="w-4 h-4 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors" />
+              </div>
+              <span className="text-xs font-mono font-medium text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-950 dark:group-hover:text-white">
+                {tech.name}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-  const quotes = [
-    "Turning complex problems into elegant solutions",
-    "Code is like humor. When you have to explain it, it’s bad.",
-    "First, solve the problem. Then, write the code.",
-    "Simplicity is the soul of efficiency.",
-    "Talk is cheap. Show me the code.",
-    "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-    "Make it work, make it right, make it fast.",
-    "Clean code always looks like it was written by someone who cares.",
-    "Truth can only be found in one place: the code.",
-    "Programming isn't about what you know; it's about what you can figure out.",
-    "Experience is the name everyone gives to their mistakes.",
-    "In order to be irreplaceable, one must always be different."
-  ];
-
-  const [dailyQuote, setDailyQuote] = useState(quotes[0]);
+export default function Hero({ onContactClick, onResumeClick }: HeroProps) {
+  const [timeString, setTimeString] = useState('');
 
   useEffect(() => {
-    // Pick a random quote on each page load
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setDailyQuote(quotes[randomIndex]);
+    const updateTime = () => {
+      const now = new Date();
+      setTimeString(
+        now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true,
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="min-h-screen relative flex flex-col px-4 sm:px-6 lg:px-8 xl:px-12">
-      {/* Header */}
-      <header className="pt-6 flex items-center justify-between">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onClick={() => setIsClicked(true)}
-          className="flex items-center gap-3 cursor-pointer group select-none"
-        >
-          <span className="text-4xl sm:text-5xl animate-wave">👋</span>
-          <span className="text-2xl sm:text-3xl font-black text-[#FFCC00] transition-transform duration-300 group-hover:scale-110">
-            {isClicked ? "Hello!" : isHovered ? "Helloooooo!" : "Hello!"}
-          </span>
-        </motion.div>
+    <section id="hero" className="relative min-h-[100dvh] pt-32 pb-12 flex flex-col justify-between overflow-x-clip bg-zinc-50 dark:bg-[#09090b] transition-colors duration-300">
+      {/* Subtle Ambient Mesh Grid */}
+      <div className="absolute inset-0 bg-cyber-grid text-zinc-900/5 dark:text-white/5 pointer-events-none" />
 
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex items-center gap-4"
-        >
-          <div className="hidden sm:flex items-center gap-3">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-gray-500 hover:text-violet-600 rounded-full transition-all duration-200"
-                style={{ background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.6)' }}
-                aria-label={social.label}
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
-            ))}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        {/* Left Column: Developer Introduction */}
+        <div className="lg:col-span-7 flex flex-col items-start space-y-6 sm:space-y-7">
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/80 text-xs font-medium text-emerald-600 dark:text-emerald-400 backdrop-blur-md shadow-xs">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="font-semibold text-zinc-800 dark:text-zinc-200">Available for 2026 Roles</span>
+            <span className="text-zinc-400 dark:text-zinc-600">•</span>
+            <span className="text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">Hyderabad, IST ({timeString || 'IST'})</span>
           </div>
 
-          <div
-            className="flex items-center gap-2 text-sm px-4 py-2 rounded-full text-gray-700"
-            style={{
-              background: 'rgba(255,255,255,0.55)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.80)',
-              boxShadow: '0 4px 20px rgba(109,40,217,0.08), inset 0 1px 0 rgba(255,255,255,0.9)',
-            }}
-          >
-            <span className="font-semibold text-xl">{formatTime(currentTime)}</span>
-            <span className="text-gray-400 text-xs">{formatDate(currentTime)}</span>
-          </div>
-        </motion.div>
-      </header>
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center relative py-20">
-        {/* Bright Wavy Skills - Meeting in Center without Overlap */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden h-full">
-          <div className="relative w-full h-full flex items-center justify-center">
-            <svg
-              className="absolute w-full h-[400px] overflow-visible"
-              viewBox="0 0 1000 200"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                {/* Tighter wave path with shorter wavelength */}
-                <path id="skillWave" d="M 0,100 Q 125,40 250,100 T 500,100 T 750,100 T 1000,100" />
-              </defs>
-
-              {/* Text from Left - Ends near center (48%) */}
-              <motion.text
-                className="fill-gray-400/80 font-black uppercase tracking-[0.3em] text-[9px]"
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                textAnchor="end"
-              >
-                <textPath href="#skillWave" startOffset="48%">
-                  {skills.slice(0, 7).join(' - ')} -
-                </textPath>
-              </motion.text>
-
-              {/* Text from Right - Starts near center (52%) */}
-              <motion.text
-                className="fill-gray-400/80 font-black uppercase tracking-[0.3em] text-[9px]"
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                textAnchor="start"
-              >
-                <textPath href="#skillWave" startOffset="52%">
-                  - {skills.slice(7).join(' - ')}
-                </textPath>
-              </motion.text>
-            </svg>
-          </div>
-        </div>
-
-        {/* Name Entrance: Meet and Stay with Wave */}
-        <div className="relative z-10 text-center flex flex-col items-center">
-          <div className="overflow-hidden py-4">
-            <motion.h1
-              initial={{ x: '-100vw', opacity: 0 }}
-              animate={{
-                x: 0,
-                opacity: 1,
-                y: [0, -20, 10, -5, 0] // Wavy bounce on arrival
-              }}
-              transition={{
-                x: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
-                opacity: { duration: 0.8 },
-                y: { duration: 1.2, times: [0, 0.4, 0.6, 0.8, 1], delay: 0.5 }
-              }}
-              className="text-7xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.8] cursor-default group relative"
-            >
-              RAJU
-              <span className="absolute -inset-8 bg-blue-600/5 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </motion.h1>
+          {/* Heading (Shadcn Studio Hero 44 Format) */}
+          <div className="space-y-2">
+            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.08]">
+              <GreetingWord />, <br />
+              I am <span className="text-zinc-950 dark:text-white">Raju Bandam</span> 👋
+            </h1>
+            <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-zinc-600 dark:text-zinc-300 pt-1">
+              Full-Stack Developer &amp; AI/ML Engineer
+            </p>
           </div>
 
-          <div className="overflow-hidden py-4">
-            <motion.h1
-              initial={{ x: '100vw', opacity: 0 }}
-              animate={{
-                x: 0,
-                opacity: 1,
-                y: [0, 20, -10, 5, 0] // Wavy bounce on arrival
-              }}
-              transition={{
-                x: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
-                opacity: { duration: 0.8 },
-                y: { duration: 1.2, times: [0, 0.4, 0.6, 0.8, 1], delay: 0.5 }
-              }}
-              className="text-7xl sm:text-8xl md:text-9xl font-black tracking-tighter leading-[0.8] text-transparent bg-clip-text bg-gradient-to-b from-gray-700 to-gray-400 cursor-default"
-            >
-              BANDAM
-            </motion.h1>
-          </div>
-        </div>
-
-        {/* Description & Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 text-center max-w-2xl px-4"
-        >
-          <p className="text-xl sm:text-2xl text-gray-600 font-medium italic mb-10">
-            "{dailyQuote}"
+          {/* Clean Fresher Description */}
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+            Computer Science &amp; Engineering (AIML) undergraduate at Malla Reddy University, Hyderabad.
+            Passionate about building performant full-stack web applications, real-time computer vision systems,
+            and intuitive user experiences.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {['AI/ML', 'Full Stack', 'Web3'].map((role) => (
-                <span
-                  key={role}
-                  className="px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest"
-                  style={{
-                    background: 'rgba(255,255,255,0.55)',
-                    backdropFilter: 'blur(16px)',
-                    WebkitBackdropFilter: 'blur(16px)',
-                    border: '1px solid rgba(255,255,255,0.80)',
-                    color: '#3b0764',
-                    boxShadow: '0 4px 15px rgba(109,40,217,0.10), inset 0 1px 0 rgba(255,255,255,0.9)',
-                  }}
-                >
-                  {role}
-                </span>
-              ))}
-            </div>
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* View Resume / Download CV */}
+            <button
+              onClick={onResumeClick}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 px-5 text-sm font-medium text-zinc-800 dark:text-zinc-100 transition-colors shadow-xs"
+            >
+              <Download className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
+              <span>Download CV</span>
+            </button>
 
+            {/* Let's Connect */}
             <button
               onClick={onContactClick}
-              className="px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all hover:-translate-y-1"
-              style={{
-                background: 'linear-gradient(135deg, #6d28d9, #4f46e5)',
-                color: 'white',
-                boxShadow: '0 6px 25px rgba(109,40,217,0.35)',
-              }}
+              className="group inline-flex h-11 items-center justify-center gap-2.5 rounded-full border border-transparent bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-white dark:text-zinc-950 px-5 text-sm font-semibold transition-all duration-300 shadow-xs"
             >
-              Let's Talk
+              <span>Let's talk</span>
+              <span className="relative flex size-4 items-center justify-center overflow-hidden rounded-full transition-all duration-300 group-hover:translate-x-1">
+                <ArrowRight className="w-3.5 h-3.5 text-white dark:text-zinc-950" />
+              </span>
             </button>
+
+            {/* Projects Jump Button */}
+            <a
+              href="#projects"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-zinc-300 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 bg-transparent px-5 text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-colors"
+            >
+              <span>Explore Projects</span>
+              <ArrowUpRight className="w-4 h-4 text-zinc-400 dark:text-zinc-500" />
+            </a>
           </div>
-        </motion.div>
+
+          {/* Social Links Bar */}
+          <div className="flex items-center gap-4 pt-3 border-t border-zinc-200 dark:border-zinc-800/80 w-full max-w-lg">
+            <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">Social:</span>
+            <div className="flex items-center gap-2.5">
+              {socialLinks.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 rounded-lg bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors shadow-xs"
+                    aria-label={s.label}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: 3D Interactive Developer ID Badge */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <HeroIdCard3D />
+        </div>
       </div>
 
-      {/* Scroll Down Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 1,
-          delay: 1.2,
-          repeat: Infinity,
-          repeatType: "reverse"
-        }}
-        className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer pointer-events-auto"
-        onClick={() => {
-          document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] font-black text-gray-500">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-gray-400 to-transparent" />
-      </motion.div>
-
+      {/* Tech Stack Logo Marquee (Continuous Scroll) */}
+      <div className="w-full mt-8">
+        <LogoMarquee />
+      </div>
     </section>
   );
 }

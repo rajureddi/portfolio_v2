@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { ThemeProvider } from 'next-themes'
 import './index.css'
 import App from './App.tsx'
 import ResumePage from './pages/ResumePage.tsx'
@@ -11,6 +12,8 @@ const isProjectsRoute = path === '/projects' || path === '/projects/';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {isResumeRoute ? <ResumePage /> : isProjectsRoute ? <ProjectsPage /> : <App />}
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      {isResumeRoute ? <ResumePage /> : isProjectsRoute ? <ProjectsPage /> : <App />}
+    </ThemeProvider>
   </StrictMode>,
 )

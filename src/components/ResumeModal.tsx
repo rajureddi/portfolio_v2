@@ -1,105 +1,100 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Download, FileText } from 'lucide-react';
+import { X, Download, FileText, ExternalLink } from 'lucide-react';
 
 interface ResumeModalProps {
-    isOpen: boolean;
-    onClose: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
-    const resumeUrl = "/RAJU_BANDAM_RESUME__.pdf";
+  const resumeUrl = '/RAJU_BANDAM_RESUME__.pdf';
 
-    return (
-        <AnimatePresence>
-            {isOpen && (
-                <>
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={onClose}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
-                    />
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="fixed inset-4 md:inset-10 lg:inset-20 bg-white rounded-[2.5rem] z-[101] overflow-hidden flex flex-col shadow-2xl shadow-black/20 border border-gray-100"
-                    >
-                        {/* Header */}
-                        <div className="p-6 md:p-8 flex items-center justify-between bg-white">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
-                                    <FileText className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-black text-gray-900 leading-none mb-1">RE_SUME</h3>
-                                    <p className="text-sm text-gray-400 font-bold uppercase tracking-widest">RAJU_BANDAM.pdf</p>
-                                </div>
-                            </div>
-                            <button
-                                onClick={onClose}
-                                className="p-3 bg-gray-50 text-gray-400 hover:text-black hover:bg-gray-100 rounded-full transition-all border border-gray-100"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
-                        </div>
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/70 backdrop-blur-md"
+          />
 
-                        {/* Content Area */}
-                        <div className="flex-1 px-6 md:px-8 pb-8 overflow-hidden flex flex-col gap-6">
-                            {/* Prominent Download Button */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                className="flex flex-col sm:flex-row gap-4"
-                            >
-                                <a
-                                    href={resumeUrl}
-                                    download
-                                    className="flex-1 flex items-center justify-center gap-3 py-5 bg-black text-white rounded-2xl font-bold text-lg hover:bg-gray-900 transition-all shadow-xl shadow-black/10 group active:scale-95"
-                                >
-                                    <Download className="w-6 h-6 group-hover:translate-y-0.5 transition-transform" />
-                                    Download Resume PDF
-                                </a>
-                                <a
-                                    href={resumeUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-8 flex items-center justify-center gap-2 bg-gray-50 text-gray-900 rounded-2xl font-bold hover:bg-gray-100 transition-all border border-gray-100 active:scale-95"
-                                >
-                                    <ExternalLink className="w-5 h-5" />
-                                    Open Fullscreen
-                                </a>
-                            </motion.div>
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-2xl rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 sm:p-8 space-y-6 shadow-2xl z-10 transition-colors duration-300"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-700 dark:text-zinc-200">
+                  <FileText className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">Curriculum Vitae</h3>
+                  <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">RAJU_BANDAM_RESUME__.pdf</p>
+                </div>
+              </div>
 
-                            {/* PDF Preview */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="flex-1 bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden relative group/preview shadow-inner"
-                            >
-                                <iframe
-                                    src={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
-                                    className="w-full h-full"
-                                    title="Resume Preview"
-                                />
-                                {/* Glass Overlay on hover */}
-                                <div className="absolute inset-0 pointer-events-none border-[8px] border-white/50 rounded-3xl" />
-                            </motion.div>
-                        </div>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-                        {/* Quick Hint */}
-                        <div className="px-8 py-4 bg-gray-50/50 border-t border-gray-100 flex justify-center items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            <p className="text-[10px] uppercase tracking-[0.2em] font-black text-gray-400">
-                                Click outside to dismiss • PDF Preview Mode
-                            </p>
-                        </div>
-                    </motion.div>
-                </>
-            )}
-        </AnimatePresence>
-    );
+            {/* Resume Highlights Summary */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-1">
+                <div className="text-zinc-500 text-[10px]">EDUCATION</div>
+                <div className="font-bold text-zinc-900 dark:text-zinc-100">B.Tech AIML (8.7)</div>
+                <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Malla Reddy Univ</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-1">
+                <div className="text-zinc-500 text-[10px]">CORE STRENGTHS</div>
+                <div className="font-bold text-zinc-900 dark:text-zinc-100">Full-Stack &amp; ML</div>
+                <div className="text-[10px] text-zinc-500 dark:text-zinc-400">React • Node • PyTorch</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-1">
+                <div className="text-zinc-500 text-[10px]">AVAILABILITY</div>
+                <div className="font-bold text-emerald-600 dark:text-emerald-400">Immediate / 2026</div>
+                <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Full-Time / Intern</div>
+              </div>
+            </div>
+
+            {/* Document Action Strip */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+              <a
+                href={resumeUrl}
+                download="RAJU_BANDAM_RESUME__.pdf"
+                className="w-full sm:flex-1 py-3 px-5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-white dark:text-zinc-950 font-semibold text-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Official PDF</span>
+              </a>
+
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto py-3 px-5 rounded-xl bg-white hover:bg-zinc-100 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-800 text-sm font-medium text-zinc-800 dark:text-zinc-200 flex items-center justify-center gap-2 transition-colors shadow-xs"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>Open in Tab</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
 }

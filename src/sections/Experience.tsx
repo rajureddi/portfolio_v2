@@ -1,199 +1,179 @@
 import { motion } from 'framer-motion';
-import { ChevronRight, GraduationCap, Award, BookOpen, MapPin, Calendar } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Calendar, CheckCircle2 } from 'lucide-react';
+import SpotlightCard from '../components/21st/SpotlightCard';
 
 const education = [
   {
     id: 1,
     degree: 'B.Tech in Computer Science and Engineering (AIML)',
     institution: 'Malla Reddy University, Hyderabad',
-    tenure: '2022 - 2026',
-    grade: 'CGPA: 8.6',
+    tenure: '2022 – 2026',
+    grade: 'CGPA: 8.7 / 10.0',
+    highlight: 'Specialization in Artificial Intelligence, Deep Learning & Applied Software Engineering',
     icon: GraduationCap,
-    color: 'bg-blue-500',
   },
   {
     id: 2,
-    degree: 'Intermediate - MPC',
+    degree: 'Intermediate (Class XII) – MPC',
     institution: 'SR Junior College',
-    tenure: '2020 - 2022',
-    grade: '90.1%',
+    tenure: '2020 – 2022',
+    grade: 'Score: 90.1%',
+    highlight: 'Advanced Mathematics, Physics, and Chemistry foundation',
     icon: BookOpen,
-    color: 'bg-indigo-500',
   },
   {
     id: 3,
-    degree: 'SSC',
+    degree: 'Secondary School Certificate (Class X)',
     institution: 'ZPSS T/EM Chennur',
     tenure: '2020',
-    grade: 'CGPA: 10',
+    grade: 'CGPA: 10.0 / 10.0',
+    highlight: 'Perfect academic score with distinction across all subjects',
     icon: Award,
-    color: 'bg-purple-500',
   },
 ];
 
 const certifications = [
-  'NPTEL Certification — Java Programming',
-  'Google Crash Course on Python (2024)',
-  'AWS Academy Cloud Foundations (In Progress)',
+  { name: 'NPTEL Certification — Java Programming', issuer: 'IIT Kharagpur / SWAYAM', status: 'Elite Certified' },
+  { name: 'Google Crash Course on Python', issuer: 'Google', status: 'Verified' },
+  { name: 'AWS Academy Cloud Foundations', issuer: 'Amazon Web Services', status: 'Coursework Completed' },
 ];
 
 const coursework = [
-  'DSA', 'Algorithms', 'DBMS', 'AI/ML', 'Deep Learning', 'NLP', 'CV', 'Full-Stack Development', 'Data Analytics'
+  'Data Structures & Algorithms',
+  'Object-Oriented Programming (Java/Python)',
+  'Deep Learning & Neural Networks',
+  'Computer Vision (CNN, YOLOv8)',
+  'Natural Language Processing (Transformers)',
+  'Database Management Systems (SQL/NoSQL)',
+  'Full-Stack Web Architecture',
+  'Operating Systems & Networking',
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
-      <div className="max-w-7xl mx-auto">
+    <section id="experience" className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10 bg-zinc-50 dark:bg-[#09090b] transition-colors duration-300">
+      <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-16 px-4">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-5xl sm:text-6xl font-bold tracking-tight text-gray-900">Education</h2>
-            <p className="mt-4 text-gray-600 font-medium">My academic journey and milestones.</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="hidden md:flex items-center gap-3 text-gray-600 glass px-6 py-3 rounded-full"
-          >
-            <span className="text-sm font-bold uppercase tracking-widest">Scroll this way</span>
-            <div className="flex">
-              <ChevronRight className="w-5 h-5 animate-pulse text-blue-500" />
-              <ChevronRight className="w-5 h-5 animate-pulse text-blue-500 -ml-3" />
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-zinc-200 dark:border-zinc-800/80">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold tracking-widest uppercase">
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span>ACADEMIC RECORD &amp; CERTIFICATIONS</span>
             </div>
-          </motion.div>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+              Education &amp; Milestones.
+            </h2>
+          </div>
+
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md font-mono">
+            A consistent academic foundation combined with practical full-stack and machine learning implementations.
+          </p>
         </div>
 
-        {/* Horizontal Education Scroll */}
-        <div className="relative group">
-          <div className="flex overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar gap-8 px-4">
-            {education.map((edu, index) => (
+        {/* Education Timeline Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {education.map((item, idx) => {
+            const Icon = item.icon;
+            return (
               <motion.div
-                key={edu.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex-none w-[85vw] sm:w-[450px] snap-center"
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div
-                  className="h-full rounded-[2.5rem] p-8 transition-all duration-500 relative overflow-hidden group/card"
-                  style={{
-                    background: 'rgba(255,255,255,0.58)',
-                    backdropFilter: 'blur(30px)',
-                    WebkitBackdropFilter: 'blur(30px)',
-                    border: '1px solid rgba(255,255,255,0.82)',
-                    boxShadow: '0 10px 40px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.90)',
-                  }}
+                <SpotlightCard
+                  className="h-full bg-white dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800/80 shadow-xs"
+                  spotlightColor="rgba(0, 0, 0, 0.05)"
                 >
-                  {/* Card Background Accent */}
-                  <div className={`absolute top-0 right-0 w-32 h-32 ${edu.color} opacity-[0.03] rounded-bl-full group-hover/card:opacity-[0.08] transition-opacity duration-500`} />
-
-                  <div className="flex flex-col h-full">
-                    <div className="flex items-start justify-between mb-8">
-                      <div className={`p-4 ${edu.color} bg-opacity-10 rounded-2xl`}>
-                        <edu.icon className={`w-8 h-8 ${edu.color.replace('bg-', 'text-')}`} />
+                  <div className="flex flex-col h-full justify-between space-y-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/60 flex items-center justify-center text-zinc-700 dark:text-zinc-300 shadow-inner">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/50 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
+                          <Calendar className="w-3 h-3 text-zinc-500" />
+                          <span>{item.tenure}</span>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-end">
-                        <span className="px-5 py-2 glass rounded-full text-sm font-bold text-gray-900">
-                          {edu.tenure}
-                        </span>
-                        <span className="mt-2 text-blue-600 font-black text-xl">
-                          {edu.grade}
-                        </span>
+
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 leading-snug">
+                          {item.degree}
+                        </h3>
+                        <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                          {item.institution}
+                        </div>
+                        <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed pt-1">
+                          {item.highlight}
+                        </p>
                       </div>
                     </div>
 
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-4 group-hover/card:text-blue-600 transition-colors">
-                        {edu.degree}
-                      </h3>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-gray-600 font-medium">
-                          <MapPin className="w-4 h-4" />
-                          <span>{edu.institution}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-gray-500 text-sm">
-                          <Calendar className="w-4 h-4" />
-                          <span>Full-time Program</span>
-                        </div>
-                      </div>
+                    <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between">
+                      <span className="text-xs font-mono text-zinc-500">Academic Score:</span>
+                      <span className="text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
+                        {item.grade}
+                      </span>
                     </div>
                   </div>
-                </div>
+                </SpotlightCard>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-20 px-4">
-          {/* Coursework */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] p-10"
-            style={{
-              background: 'rgba(237,233,254,0.45)',
-              backdropFilter: 'blur(28px)',
-              WebkitBackdropFilter: 'blur(28px)',
-              border: '1px solid rgba(167,139,250,0.40)',
-              boxShadow: '0 8px 30px rgba(109,40,217,0.07), inset 0 1px 0 rgba(255,255,255,0.85)',
-            }}
-          >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-900">
-              <BookOpen className="w-6 h-6 text-blue-500" />
-              Relevant Coursework
+        {/* Certifications & Coursework Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+          {/* Industry Certifications */}
+          <div className="lg:col-span-6 space-y-4">
+            <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-200 flex items-center gap-2">
+              <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span>Verified Certifications</span>
             </h3>
+
+            <div className="space-y-3">
+              {certifications.map((cert) => (
+                <div
+                  key={cert.name}
+                  className="p-4 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 flex items-center justify-between gap-4 shadow-xs"
+                >
+                  <div className="space-y-0.5 min-w-0">
+                    <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-200 truncate">
+                      {cert.name}
+                    </div>
+                    <div className="text-xs text-zinc-500 font-mono">
+                      {cert.issuer}
+                    </div>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-500/30 text-[11px] font-mono text-emerald-700 dark:text-emerald-400 shrink-0">
+                    {cert.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Academic Coursework Tags */}
+          <div className="lg:col-span-6 space-y-4">
+            <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-200 flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
+              <span>Core Academic Coursework</span>
+            </h3>
+
             <div className="flex flex-wrap gap-2">
               {coursework.map((course) => (
-                <span key={course} className="px-5 py-2.5 bg-white/40 hover:bg-white/80 hover:text-blue-600 rounded-full text-sm font-bold text-gray-700 border border-white/50 transition-all cursor-default shadow-sm">
-                  {course}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Certifications */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] p-10"
-            style={{
-              background: 'rgba(254,243,199,0.45)',
-              backdropFilter: 'blur(28px)',
-              WebkitBackdropFilter: 'blur(28px)',
-              border: '1px solid rgba(252,211,77,0.40)',
-              boxShadow: '0 8px 30px rgba(245,158,11,0.07), inset 0 1px 0 rgba(255,255,255,0.85)',
-            }}
-          >
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-900">
-              <Award className="w-6 h-6 text-yellow-500" />
-              Certifications
-            </h3>
-            <div className="space-y-4">
-              {certifications.map((cert, index) => (
-                <motion.div
-                  key={cert}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-4 hover:bg-white/50 rounded-2xl transition-all border border-transparent hover:border-white/50 group shadow-sm"
+                <div
+                  key={course}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800/80 text-xs font-mono text-zinc-800 dark:text-zinc-300 shadow-xs"
                 >
-                  <div className="w-2 h-2 rounded-full bg-yellow-500 group-hover:scale-150 transition-transform" />
-                  <span className="text-gray-800 font-semibold">{cert}</span>
-                </motion.div>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>{course}</span>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
