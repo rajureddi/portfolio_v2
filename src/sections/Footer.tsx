@@ -19,7 +19,7 @@ export default function Footer({ onContactClick, onResumeClick }: FooterProps) {
   };
 
   return (
-    <footer className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 xl:px-12 border-t border-zinc-200 dark:border-zinc-800/80 overflow-hidden bg-zinc-100 dark:bg-[#09090b] transition-colors duration-300">
+    <footer className="relative pt-20 sm:pt-24 pb-28 sm:pb-20 px-4 sm:px-6 lg:px-8 xl:px-12 border-t border-zinc-200 dark:border-zinc-800/80 overflow-hidden bg-zinc-100 dark:bg-[#09090b] transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-16 relative z-10">
         {/* Main CTA Block */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-16 border-b border-zinc-200 dark:border-zinc-800/80">
@@ -27,7 +27,7 @@ export default function Footer({ onContactClick, onResumeClick }: FooterProps) {
             <div className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-mono text-xs font-semibold uppercase tracking-widest">
               <span>GET IN TOUCH</span>
             </div>
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight">
+            <h2 className="text-3xl sm:text-6xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight">
               Ready to collaborate? <br />
               <span className="text-zinc-950 dark:text-white">Let's build together.</span>
             </h2>

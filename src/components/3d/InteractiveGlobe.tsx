@@ -267,15 +267,15 @@ export default function InteractiveGlobe() {
   }, []);
 
   return (
-    <div className="relative w-full h-[360px] sm:h-[420px] flex items-center justify-center select-none overflow-hidden">
+    <div className="relative w-full h-[320px] sm:h-[420px] flex items-center justify-center select-none overflow-hidden touch-pan-y">
       <canvas
         ref={canvasRef}
-        className="w-full h-full cursor-grab active:cursor-grabbing"
+        className="w-full h-full cursor-grab active:cursor-grabbing touch-pan-y"
       />
 
       {/* Node Telemetry HUD Card */}
-      <div className="absolute top-4 left-4 z-10 pointer-events-none">
-        <div className="p-3 rounded-xl bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/10 backdrop-blur-xl shadow-md flex flex-col gap-1 max-w-[220px]">
+      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 pointer-events-none">
+        <div className="p-2.5 sm:p-3 rounded-xl bg-white/90 dark:bg-zinc-950/80 border border-zinc-200 dark:border-white/10 backdrop-blur-xl shadow-md flex flex-col gap-1 max-w-[190px] sm:max-w-[220px]">
           <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 dark:text-zinc-400">
             <span>REGIONAL HUB</span>
             <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">

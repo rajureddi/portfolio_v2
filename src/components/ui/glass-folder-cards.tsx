@@ -1339,6 +1339,18 @@ canvas.gf-sheet-art[data-ready] { opacity: 1; filter: none; }
 .gf-root[data-entered] .gf-front { transition-delay: 0s, .42s, .42s; }
 .gf-key { transition: transform .35s var(--gf-spring), box-shadow .35s var(--gf-ease), opacity .6s var(--gf-ease) .7s, scale .7s var(--gf-spring) .7s; }
 
+@media (max-width: 640px) {
+  .gf-root[data-open] {
+    --gf-spread: 18px;
+    --gf-fan: 3deg;
+    --gf-lift: -65px;
+    --gf-stack: 18px;
+  }
+  .gf-sheet-name {
+    font-size: 11px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gf-root *, .gf-root *::before, .gf-root *::after {
     transition-duration: 0s !important;

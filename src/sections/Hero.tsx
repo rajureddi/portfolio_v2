@@ -116,30 +116,30 @@ export default function Hero({ onContactClick, onResumeClick }: HeroProps) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
             <span className="font-semibold text-zinc-800 dark:text-zinc-200">Available for 2026 Roles</span>
-            <span className="text-zinc-400 dark:text-zinc-600">•</span>
-            <span className="text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">Hyderabad, IST ({timeString || 'IST'})</span>
+            <span className="hidden sm:inline text-zinc-400 dark:text-zinc-600">•</span>
+            <span className="hidden sm:inline text-zinc-500 dark:text-zinc-400 font-mono text-[11px]">Hyderabad, IST ({timeString || 'IST'})</span>
           </div>
 
           {/* Heading (Shadcn Studio Hero 44 Format) */}
           <div className="space-y-2">
-            <h1 className="text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.08]">
+            <h1 className="text-3xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.08]">
               <GreetingWord />, <br />
               I am <span className="text-zinc-950 dark:text-white">Raju Bandam</span> 👋
             </h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl font-medium text-zinc-600 dark:text-zinc-300 pt-1">
+            <p className="text-lg sm:text-2xl lg:text-3xl font-medium text-zinc-600 dark:text-zinc-300 pt-1">
               Full-Stack Developer &amp; AI/ML Engineer
             </p>
           </div>
 
           {/* Clean Fresher Description */}
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
             Computer Science &amp; Engineering (AIML) undergraduate at Malla Reddy University, Hyderabad.
             Passionate about building performant full-stack web applications, real-time computer vision systems,
             and intuitive user experiences.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
             {/* View Resume / Download CV */}
             <button
               onClick={onResumeClick}

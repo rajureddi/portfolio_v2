@@ -120,7 +120,7 @@ export const DockIcon = ({
     >
       {children}
       {title && (
-        <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 border border-zinc-700 dark:border-zinc-300 text-[11px] font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md">
+        <span className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 border border-zinc-700 dark:border-zinc-300 text-[11px] font-mono font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-md hidden sm:inline-block">
           {title}
         </span>
       )}

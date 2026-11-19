@@ -75,7 +75,7 @@ export default function HeroIdCard3D({ className = '' }: HeroIdCard3DProps) {
         }}
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.15 }}
-        className="relative w-full max-w-[340px] sm:max-w-[370px] aspect-[1/1.44] rounded-2xl p-6 
+        className="relative w-full max-w-[320px] sm:max-w-[370px] sm:aspect-[1/1.44] rounded-2xl p-4 sm:p-6 
           bg-gradient-to-b from-white/95 via-zinc-50/95 to-zinc-100/98 border border-zinc-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.04)]
           dark:from-zinc-900/95 dark:via-[#111116]/95 dark:to-zinc-950/98 dark:border-zinc-700/60 dark:shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.06)] 
           backdrop-blur-xl overflow-hidden cursor-grab active:cursor-grabbing transition-colors duration-300"

@@ -34,6 +34,17 @@ export function InteractiveIconCloud({
     return () => cancelAnimationFrame(animId);
   }, []);
 
+  const [radius, setRadius] = useState(150);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      setRadius(typeof window !== 'undefined' && window.innerWidth < 640 ? 112 : 150);
+    };
+    updateRadius();
+    window.addEventListener('resize', updateRadius);
+    return () => window.removeEventListener('resize', updateRadius);
+  }, []);
+
   const handleMouseDown = (e: React.MouseEvent) => {
     mouseRef.current.isDown = true;
     mouseRef.current.lastX = e.clientX;
@@ -56,8 +67,27 @@ export function InteractiveIconCloud({
     mouseRef.current.isDown = false;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 1) {
+      mouseRef.current.isDown = true;
+      mouseRef.current.lastX = e.touches[0].clientX;
+      mouseRef.current.lastY = e.touches[0].clientY;
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!mouseRef.current.isDown || e.touches.length !== 1) return;
+    const deltaX = e.touches[0].clientX - mouseRef.current.lastX;
+    const deltaY = e.touches[0].clientY - mouseRef.current.lastY;
+    setRotation((prev) => ({
+      x: prev.x - deltaY * 0.005,
+      y: prev.y + deltaX * 0.005,
+    }));
+    mouseRef.current.lastX = e.touches[0].clientX;
+    mouseRef.current.lastY = e.touches[0].clientY;
+  };
+
   // Compute 3D Fibonacci Sphere positions
-  const radius = 150;
   const numItems = labels.length;
   const phi = Math.PI * (3 - Math.sqrt(5));
 
@@ -99,7 +129,10 @@ export function InteractiveIconCloud({
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="relative w-full h-[360px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleMouseUp}
+      className="relative w-full h-[320px] sm:h-[360px] flex items-center justify-center cursor-grab active:cursor-grabbing select-none overflow-hidden touch-pan-y"
     >
       {items.map((item, index) => (
         <div

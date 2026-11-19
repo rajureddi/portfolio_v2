@@ -326,10 +326,10 @@ export default function Projects() {
           </div>
 
           {/* View Mode Toggle Button Group */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-200/80 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-200/80 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 w-full sm:w-auto justify-center sm:justify-start">
             <button
               onClick={() => setViewMode('folders')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                 viewMode === 'folders'
                   ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-xs'
                   : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
@@ -340,7 +340,7 @@ export default function Projects() {
             </button>
             <button
               onClick={() => setViewMode('grid')}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
                 viewMode === 'grid'
                   ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-xs'
                   : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
@@ -355,7 +355,7 @@ export default function Projects() {
         {/* 1. Glass Folders View */}
         {viewMode === 'folders' && (
           <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center items-start pt-6 overflow-hidden sm:overflow-visible">
               {FOLDERS.map((folder, index) => (
                 <div key={folder.id} className="flex flex-col items-center">
                   <GlassFolder

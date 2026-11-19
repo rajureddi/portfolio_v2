@@ -40,7 +40,7 @@ export default function ProjectDetailModal({ project, onClose }: ProjectDetailMo
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-2xl rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 sm:p-8 space-y-6 shadow-2xl z-10 transition-colors duration-300"
+          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-5 sm:p-8 space-y-5 sm:space-y-6 shadow-2xl z-10 transition-colors duration-300"
         >
           {/* Modal Header */}
           <div className="flex items-start justify-between gap-4">
