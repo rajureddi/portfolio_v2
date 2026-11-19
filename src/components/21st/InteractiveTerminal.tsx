@@ -66,30 +66,31 @@ export default function InteractiveTerminal() {
         type: 'output',
         content: `Name       : Raju Bandam (RB)
 Website    : https://rajureddie.in
-Title      : Full-Stack Developer & AI/ML Engineer
-Status     : Fresher / Available for 2026 Software Engineering Roles
+Title      : Full-Stack & Mobile Developer (Android & Flutter) • AI/ML Engineer
+Status     : Graduate / Available for 2026 Software & Mobile Engineering Roles
 College    : Malla Reddy University, Hyderabad (CGPA 8.7)
-Focus      : Full-Stack Web (React, Next.js, Node.js), Applied AI & Computer Vision (PyTorch, YOLO)`,
+Focus      : Full-Stack Web & Mobile Applications (Android & Flutter), Applied AI & Scalable Systems`,
       });
     } else if (trimmed === 'skills') {
       newLines.push({
         id: (Date.now() + 1).toString(),
         type: 'output',
         content: `Frontend   : React 19, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5/CSS3
+Mobile     : Android Development (Java, Kotlin, Android SDK), Flutter (Dart)
 Backend    : Node.js, Express, Fastify, REST APIs, PostgreSQL, MongoDB
-AI / ML    : Python, PyTorch, OpenCV, YOLOv8/v11, ResNet, BERT, CNNs
+AI / ML    : Python, PyTorch, MediaPipe, YOLOv8/v11, ResNet, BERT, CNNs
 Core CS    : Data Structures & Algorithms, Object-Oriented Programming (Java/Python), DBMS
-Tools      : Git, GitHub, Docker, Postman, VS Code, Linux`,
+Tools      : Git, GitHub, Docker, Android Studio, Postman, Linux`,
       });
     } else if (trimmed === 'projects') {
       newLines.push({
         id: (Date.now() + 1).toString(),
         type: 'output',
         content: `[Top Production Works]
-1. TurantPay (Offline UPI via NPCI USSD protocol without internet)
+1. TurantPay (Android offline UPI via NPCI USSD protocol without internet)
 2. AuraOnDevice AI HUB (Android multimodal LLM with MNN engine)
-3. DepthSightAI (ARCore metric 3D depth estimation + camera tracking)
-4. Smart Traffic Management (YOLO real-time stream density regulation)
+3. DepthSightAI (Android ARCore metric 3D depth estimation + camera tracking)
+4. Backlog Wallah (Android EdTech application with interactive learning materials)
 5. PlantAI (Botanical leaf disease diagnostics with 98.2% accuracy)
 6. VoterSetu (Civic technology portal with GIS offline mapping)
 7. Voice2Sign (Acoustic speech parsing to 3D sign language avatar)

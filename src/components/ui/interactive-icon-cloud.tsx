@@ -7,11 +7,11 @@ interface IconCloudProps {
 
 export function InteractiveIconCloud({
   labels = [
-    "Python", "PyTorch", "TensorFlow", "OpenCV", "YOLOv11",
-    "BERT", "Android NDK", "C++", "Java", "MediaPipe",
-    "MNN", "ARCore", "React", "Next.js", "TypeScript",
-    "Node.js", "AWS", "Docker", "Git", "Flask",
-    "FastAPI", "Linux", "Scikit-Learn", "REST APIs"
+    "Android Dev", "Flutter", "React", "Next.js", "TypeScript",
+    "Node.js", "Python", "PyTorch", "Java", "C++",
+    "TensorFlow", "MediaPipe", "MNN", "ARCore", "OpenCV",
+    "Docker", "Git", "PostgreSQL", "TailwindCSS", "FastAPI",
+    "Linux", "REST APIs", "Mobile UI", "Scikit-Learn"
   ],
 }: IconCloudProps) {
   const containerRef = useRef<HTMLDivElement>(null);

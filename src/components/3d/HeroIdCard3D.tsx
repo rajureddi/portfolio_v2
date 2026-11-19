@@ -125,7 +125,7 @@ export default function HeroIdCard3D({ className = '' }: HeroIdCard3DProps) {
               Raju Bandam
             </h2>
             <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400">
-              Full-Stack &amp; AI/ML Engineer
+              Full-Stack &amp; Mobile Developer
             </p>
             <div className="flex items-center gap-1.5 text-[11px] text-zinc-500 dark:text-zinc-400 font-mono pt-0.5">
               <MapPin className="w-3 h-3 text-zinc-400 shrink-0" />
@@ -152,7 +152,7 @@ export default function HeroIdCard3D({ className = '' }: HeroIdCard3DProps) {
 
         {/* Key Competencies Chips */}
         <div className="mt-4 flex flex-wrap gap-1.5 relative z-10">
-          {['React', 'Next.js', 'Node.js', 'Python', 'Java', 'OpenCV', 'PyTorch'].map((skill) => (
+          {['React', 'Next.js', 'Android', 'Flutter', 'Node.js', 'Python', 'Java', 'PyTorch'].map((skill) => (
             <span
               key={skill}
               className="px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/50 text-[10px] font-mono text-zinc-700 dark:text-zinc-300"

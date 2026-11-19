@@ -5,7 +5,7 @@ const features = [
   {
     icon: Crown,
     title: 'AI & ML',
-    description: 'Expertise in TensorFlow, PyTorch, OpenCV, and deep learning models for computer vision and NLP tasks.',
+    description: 'Expertise in Android, Flutter, TensorFlow, PyTorch, and deep learning models for mobile and web systems.',
     glassColor: 'rgba(237,233,254,0.60)',
     glassBorder: 'rgba(167,139,250,0.45)',
     iconColor: '#7c3aed',

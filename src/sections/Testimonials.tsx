@@ -4,11 +4,11 @@ import { FileDown, Mail, Phone, Globe, Github, Linkedin, Twitter } from 'lucide-
 const technicalSkills = {
   'Languages': ['Python', 'C/C++', 'Java', 'JavaScript'],
   'Frameworks': ['React', 'Flask', 'Node.js', 'FastAPI', 'KivyMD'],
-  'ML/AI': ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'HuggingFace', 'NLP', 'CV', 'Transformers'],
+  'ML/AI': ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV', 'HuggingFace', 'NLP', 'Mobile', 'Transformers'],
   'Tools': ['Git', 'Firebase', 'MongoDB', 'MySQL', 'AWS'],
 };
 
-const interests = ['ML Systems', 'Web Apps', 'Deployment', 'Computer Vision'];
+const interests = ['Mobile Apps', 'Web Apps', 'Deployment', 'On-Device AI'];
 
 export default function Testimonials() {
   return (

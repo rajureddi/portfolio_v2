@@ -60,8 +60,8 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-1">
                 <div className="text-zinc-500 text-[10px]">CORE STRENGTHS</div>
-                <div className="font-bold text-zinc-900 dark:text-zinc-100">Full-Stack &amp; ML</div>
-                <div className="text-[10px] text-zinc-500 dark:text-zinc-400">React • Node • PyTorch</div>
+                <div className="font-bold text-zinc-900 dark:text-zinc-100">Web &amp; Mobile Apps</div>
+                <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Android • Flutter • React</div>
               </div>
 
               <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-1">

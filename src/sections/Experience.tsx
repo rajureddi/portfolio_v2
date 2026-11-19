@@ -39,10 +39,10 @@ const certifications = [
 ];
 
 const coursework = [
+  'Mobile Application Development (Android & Flutter)',
   'Data Structures & Algorithms',
   'Object-Oriented Programming (Java/Python)',
   'Deep Learning & Neural Networks',
-  'Computer Vision (CNN, YOLOv8)',
   'Natural Language Processing (Transformers)',
   'Database Management Systems (SQL/NoSQL)',
   'Full-Stack Web Architecture',

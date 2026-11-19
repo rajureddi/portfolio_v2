@@ -32,8 +32,8 @@ export default function Footer({ onContactClick, onResumeClick }: FooterProps) {
               <span className="text-zinc-950 dark:text-white">Let's build together.</span>
             </h2>
             <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Undergraduate student in CSE AIML graduating in 2026. Available for software engineering,
-              full-stack development, and AI/ML engineer roles.
+              Computer Science &amp; Engineering (AIML) graduate. Available for software engineering,
+              mobile application development (Android &amp; Flutter), and full-stack engineering roles.
             </p>
           </div>
 

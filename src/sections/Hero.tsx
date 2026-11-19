@@ -127,14 +127,14 @@ export default function Hero({ onContactClick, onResumeClick }: HeroProps) {
               I am <span className="text-zinc-950 dark:text-white">Raju Bandam</span> 👋
             </h1>
             <p className="text-lg sm:text-2xl lg:text-3xl font-medium text-zinc-600 dark:text-zinc-300 pt-1">
-              Full-Stack Developer &amp; AI/ML Engineer
+              Full-Stack &amp; Mobile Developer (Android &amp; Flutter) • AI/ML
             </p>
           </div>
 
           {/* Clean Fresher Description */}
           <p className="text-sm sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-            Computer Science &amp; Engineering (AIML) undergraduate at Malla Reddy University, Hyderabad.
-            Passionate about building performant full-stack web applications, real-time computer vision systems,
+            Computer Science &amp; Engineering (AIML) graduate from Malla Reddy University, Hyderabad.
+            Passionate about building performant full-stack web applications, native mobile applications (Android &amp; Flutter),
             and intuitive user experiences.
           </p>
 

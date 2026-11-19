@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Cpu, Eye, ShieldCheck, GraduationCap, Globe2 } from 'lucide-react';
+import { Code2, Cpu, Smartphone, ShieldCheck, GraduationCap, Globe2 } from 'lucide-react';
 import { BentoGrid, BentoGridItem } from '../components/ui/bento-grid';
 import { InteractiveIconCloud } from '../components/ui/interactive-icon-cloud';
 import InteractiveGlobe from '../components/3d/InteractiveGlobe';
@@ -27,7 +27,7 @@ export default function BentoOverview() {
           </motion.div>
 
           <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md font-mono">
-            Bridging responsive modern web engineering, robust backend services, and practical computer vision systems.
+            Bridging responsive modern web engineering, native mobile applications (Android &amp; Flutter), and scalable backend systems.
           </p>
         </div>
 
@@ -77,25 +77,25 @@ export default function BentoOverview() {
             icon={<ShieldCheck className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />}
           />
 
-          {/* Tile 4: Computer Vision & Deep Learning */}
+          {/* Tile 4: Mobile Applications & Android Development */}
           <BentoGridItem
             className="md:col-span-1"
-            title="Computer Vision & Deep Learning"
-            description="Trained YOLOv8 and ResNet architectures for real-time vehicular traffic density regulation, emergency responder corridors, and botanical disease detection."
+            title="Mobile Applications (Android & Flutter)"
+            description="Engineering performant mobile applications using Android SDK and Flutter. Specializing in offline architectures, telephony/USSD integrations, on-device ML inference, and smooth 60 FPS mobile UI."
             header={
               <div className="h-28 rounded-xl bg-zinc-100/90 dark:bg-zinc-950/80 p-4 border border-zinc-200 dark:border-zinc-800/80 flex items-center justify-around font-mono">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">98.2%</div>
-                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Diagnostic Accuracy</div>
+                  <div className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">Android &amp; Flutter</div>
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Native &amp; Cross-Platform</div>
                 </div>
                 <div className="h-10 w-[1px] bg-zinc-200 dark:bg-zinc-800" />
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">&lt;20ms</div>
-                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Real-Time FPS</div>
+                  <div className="text-xl sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">60 FPS</div>
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400">Offline-First Engine</div>
                 </div>
               </div>
             }
-            icon={<Eye className="w-5 h-5 text-zinc-600 dark:text-zinc-300" />}
+            icon={<Smartphone className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />}
           />
 
           {/* Tile 5: Academic Foundation & Problem Solving */}
